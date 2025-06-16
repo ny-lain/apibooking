@@ -64,7 +64,7 @@ localhost:4000/auth/login
 // REDIRECT TO THE LOGIN (Authentication) MICROSERVICE
 app.use('/auth', (req, res) => {
     console.log("INSIDE API GATEWAY LOGIN ROUTE");
-    proxy.web(req, res, { target: 'http://3.86.212.187:5000' }); // user service handles auth/login
+    proxy.web(req, res, { target: 'http://54.91.108.193:5000' }); // user service handles auth/login
 });
 
 /*
@@ -75,7 +75,7 @@ localhost:4000/admin/addproduct
 // REDIRECT TO THE ADMIN MICROSERVICE
 app.use('/admin', authToken, authRole('admin'), (req, res) => {
     console.log("INSIDE API GATEWAY ADMIN ROUTE");
-    proxy.web(req, res, { target: 'http://3.91.181.254:5001' });
+    proxy.web(req, res, { target: 'http://13.221.84.1:5001' });
 });
 
 /*
@@ -87,7 +87,7 @@ localhost:4000/user/order
 // REDIRECT TO THE USER MICROSERVICE
 app.use('/user', authToken, authRole('user'), (req, res) => {
     console.log("INSIDE API GATEWAY USER ROUTE");
-    proxy.web(req, res, { target: 'http://44.204.153.178:5002' });
+    proxy.web(req, res, { target: 'http://54.242.171.238:5002' });
 });
 
 app.listen(4000, () => {
